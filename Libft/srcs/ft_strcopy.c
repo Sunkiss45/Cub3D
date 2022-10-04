@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strcopy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 15:41:14 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/04 15:06:19 by ebarguil         ###   ########.fr       */
+/*   Created: 2022/10/04 14:30:36 by ebarguil          #+#    #+#             */
+/*   Updated: 2022/10/04 14:50:39 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# define BUFFER_SIZE 1024
+char	*ft_strcopy(char *src, char dst[BUFFER_SIZE])
+{
+	int		i;
 
-/*
- * === ft_bzero === *
- */
-
-void	ft_bzero(char *str, int x);
-
-/*
- * === ft_str === *
- */
-
-int		ft_strlen(char *s);
-char	*ft_strcopy(char *src, char dst[BUFFER_SIZE]);
-
-#endif
+	ft_bzero(dst, BUFFER_SIZE);
+	if (!src || ft_strlen(src) > BUFFER_SIZE - 1)
+		return (dst);
+	i = -1;
+	while (src[++i])
+		dst[i] = src[i];
+	return (dst);
+}

@@ -6,7 +6,7 @@
 #    By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 15:01:01 by ebarguil          #+#    #+#              #
-#    Updated: 2022/09/30 16:16:04 by ebarguil         ###   ########.fr        #
+#    Updated: 2022/10/04 15:33:30 by ebarguil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ fclean		:
 
 fsa			:	fclean obj $(OBJ)
 				make -C Libft
-				$(C) $(CFLAGS) $(CDEP) $(CFA) -o $(NAME) $(SRC) $(LIB)
+				$(C) $(CFLAGS) $(CFA) -o $(NAME) $(SRC) $(LIB)
 
 re			:	fclean all
 

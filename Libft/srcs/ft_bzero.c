@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 15:41:14 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/04 15:06:19 by ebarguil         ###   ########.fr       */
+/*   Created: 2022/10/04 14:26:23 by ebarguil          #+#    #+#             */
+/*   Updated: 2022/10/04 14:51:38 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# define BUFFER_SIZE 1024
+void	ft_bzero(char *str, int x)
+{
+	int	i;
 
-/*
- * === ft_bzero === *
- */
-
-void	ft_bzero(char *str, int x);
-
-/*
- * === ft_str === *
- */
-
-int		ft_strlen(char *s);
-char	*ft_strcopy(char *src, char dst[BUFFER_SIZE]);
-
-#endif
+	i = -1;
+	while (++i < x)
+		str[i] = '\0';
+	return ;
+}
