@@ -6,7 +6,7 @@
 #    By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 15:01:01 by ebarguil          #+#    #+#              #
-#    Updated: 2022/10/04 15:33:30 by ebarguil         ###   ########.fr        #
+#    Updated: 2022/10/04 16:01:32 by ebarguil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,11 @@ RM		=	/usr/bin/rm -rf
 LIB		=	-L ./Libft -lft
 
 vpath %.c srcs
+vpath %.c srcs/parsing
 
 SRC		=	srcs/main.c \
+			srcs/parsing/ft_check_name.c \
+			srcs/parsing/ft_parsing.c \
 
 OBJ		=	$(SRC:srcs/%.c=objs/%.o)
 DEP		=	$(SRC:srcs/%.c=objs/%.d)
@@ -43,6 +46,10 @@ obj			:
 				@if [ ! -d "./objs" ]; then\
 					echo "mkdir -p objs";\
 					mkdir -p objs;\
+				fi
+				@if [ ! -d "./objs/parsing" ]; then\
+					echo "mkdir -p objs/parsing";\
+					mkdir -p objs/parsing;\
 				fi
 				@echo ""
 

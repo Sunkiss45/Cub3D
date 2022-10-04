@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 14:57:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/04 15:38:38 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:02:45 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,18 @@ typedef struct s_map
 	char	name[BUFFER_SIZE];
 	int		fd;
 }	t_map;
+
+/*
+ * === ft_error === *
+ */
+
+int	ft_error_int(char *e, int x);
+
+/*
+ * === parsing === *
+ */
+
+int	ft_check_name(t_map *map);
+int	ft_parsing(t_map *map, char *str);
 
 #endif
