@@ -6,7 +6,7 @@
 #    By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 15:01:01 by ebarguil          #+#    #+#              #
-#    Updated: 2022/10/04 16:01:32 by ebarguil         ###   ########.fr        #
+#    Updated: 2022/10/05 17:16:13 by ebarguil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ libft		:
 
 -include $(DEP)
 
-$(NAME)		:	$(OBJ)
+$(NAME)		:	$(OBJ) ./Libft/libft.a
 				$(C) $(CFLAGS) -o $(NAME) $(SRC) $(LIB)
 
 obj			:
@@ -59,12 +59,14 @@ objs/%.o	:	%.c
 clean		:
 				$(RM) $(OBJ)
 				$(RM) $(DEP)
+				$(RM) objs/parsing
 				$(RM) objs
 				make -C Libft clean
 
 fclean		:
 				$(RM) $(OBJ)
 				$(RM) $(DEP)
+				$(RM) objs/parsing
 				$(RM) objs
 				$(RM) $(NAME)
 				make -C Libft fclean
