@@ -6,7 +6,7 @@
 #    By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 15:01:01 by ebarguil          #+#    #+#              #
-#    Updated: 2022/10/05 17:16:13 by ebarguil         ###   ########.fr        #
+#    Updated: 2022/10/05 18:55:13 by ebarguil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,10 @@ vpath %.c srcs
 vpath %.c srcs/parsing
 
 SRC		=	srcs/main.c \
+			srcs/parsing/ft_check_elems.c \
 			srcs/parsing/ft_check_name.c \
 			srcs/parsing/ft_parsing.c \
+			srcs/parsing/ft_save_elems.c \
 
 OBJ		=	$(SRC:srcs/%.c=objs/%.o)
 DEP		=	$(SRC:srcs/%.c=objs/%.d)
