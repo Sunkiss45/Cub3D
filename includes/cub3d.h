@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 14:57:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/06 20:27:19 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/06 21:00:33 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int		ft_error_int(char *e, int x);
 
 int		ft_check_elems(t_map *map);
 int		ft_check_name(t_map *map);
+int		ft_fill_col(char *l, int end, int r, int i);
 bool	ft_isdigit_cub(char *s, int n);
 int		ft_parsing(t_map *map, char *str);
 void	ft_save_elems(t_map *map, char *l);

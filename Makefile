@@ -6,7 +6,7 @@
 #    By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 15:01:01 by ebarguil          #+#    #+#              #
-#    Updated: 2022/10/06 20:27:13 by ebarguil         ###   ########.fr        #
+#    Updated: 2022/10/06 21:00:12 by ebarguil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ vpath %.c srcs/parsing
 SRC		=	srcs/main.c \
 			srcs/parsing/ft_check_elems.c \
 			srcs/parsing/ft_check_name.c \
+			srcs/parsing/ft_fill_col.c \
 			srcs/parsing/ft_isdigit_cub.c \
 			srcs/parsing/ft_parsing.c \
 			srcs/parsing/ft_save_elems.c \
