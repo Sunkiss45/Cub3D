@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:46:35 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/05 18:54:41 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/06 20:37:32 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ bool	ft_elems_ok(t_map *map)
 	if (!map->tex_we[0])
 		return (false);
 	if (!map->tex_ea[0])
+		return (false);
+	if (map->flo == -1)
+		return (false);
+	if (map->cel == -1)
 		return (false);
 	return (true);
 }

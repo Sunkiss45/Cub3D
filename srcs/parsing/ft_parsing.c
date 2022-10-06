@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:49:08 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/05 18:55:28 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/06 18:57:05 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	ft_init_map(t_map *map, char *str)
 	map->tex_so[0] = '\0';
 	map->tex_we[0] = '\0';
 	map->tex_ea[0] = '\0';
-	map->cel = 0;
+	map->flo = -1;
+	map->cel = -1;
 	map->fd = 0;
 }
 

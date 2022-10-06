@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 15:41:14 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/05 16:36:32 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/06 20:25:30 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,12 @@ void	ft_bzero(char *str, int x);
 int		ft_strlen(char *s);
 void	ft_strcopy_n(char *src, char dst[BUFFER_SIZE], int n);
 void	ft_strcopy(char *src, char dst[BUFFER_SIZE]);
+int		ft_contains(char *s, char c);
+
+/*
+ * === ft_ conv === *
+ */
+
+int		ft_atoi(const char *str);
 
 #endif

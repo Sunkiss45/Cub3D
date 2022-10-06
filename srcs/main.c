@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 14:56:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/05 17:25:01 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/06 20:37:45 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ int	main(int ac, char **av)
 	printf(GREEN"tex_so : [%s]"RESET"\n", map.tex_so);
 	printf(GREEN"tex_we : [%s]"RESET"\n", map.tex_we);
 	printf(GREEN"tex_ea : [%s]"RESET"\n", map.tex_ea);
+	printf(GREEN"flo : [%i]"RESET"\n", map.flo);
+	printf(GREEN"cel : [%i]"RESET"\n", map.cel);
 	return (0);
 }

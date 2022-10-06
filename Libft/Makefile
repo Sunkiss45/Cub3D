@@ -6,7 +6,7 @@
 #    By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 15:38:30 by ebarguil          #+#    #+#              #
-#    Updated: 2022/10/05 16:37:03 by ebarguil         ###   ########.fr        #
+#    Updated: 2022/10/06 20:25:47 by ebarguil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ RM		=	/usr/bin/rm -rf
 
 vpath %.c srcs
 
-SRC		=	srcs/ft_bzero.c \
+SRC		=	srcs/ft_atoi.c \
+			srcs/ft_bzero.c \
+			srcs/ft_contains.c \
 			srcs/ft_gnl.c \
 			srcs/ft_strcopy_n.c \
 			srcs/ft_strcopy.c \

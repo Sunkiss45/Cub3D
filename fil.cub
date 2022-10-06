@@ -1,9 +1,9 @@
 NO           ./tex/my_tex_no.tex          
-SO      ./tex/my_tex_so.tex
+     SO      ./tex/my_tex_so.tex
 WE ./tex/my_tex_we.tex          
 EA ./tex/my_tex_ea.tex
 
-F 220,100,0
+     F      220,100,0   
 C 225,30,0
 
         1111111111111111111111111

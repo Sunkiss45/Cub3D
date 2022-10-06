@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:48:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/05 18:57:19 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/06 20:57:25 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,58 @@ void	ft_save_this_tex(char *l, int x, char tex[BUFFER_SIZE])
 	return ;
 }
 
+int	ft_fill_col(char *l, int end, int r, int i)
+{
+	char	buf[BUFFER_SIZE];
+	int		rgb[3];
+
+	while (l[++i] && i < end)
+	{
+		if (l[i] == ',')
+			continue ;
+		ft_bzero(buf, BUFFER_SIZE);
+		while (l[i] && l[i] != ',' && i < end)
+		{
+			buf[i] = l[i];
+			i++;
+		}
+		if (!l[i])
+			i--;
+		if (r == 2)
+			return (-1);
+		rgb[++r] = ft_atoi(buf);
+		if (rgb[r] < 0 || rgb[r] > 255)
+			return (-1);
+	}
+	if (r != 2)
+		return (-1);
+	return ((rgb[0] << 16) + (rgb[1] << 8) + rgb[2]);
+}
+
+void	ft_save_this_col(char *l, int x, int *color)
+{
+	int		i;
+
+	if (!x)
+		return ;
+	printf(BLUE"[%s]"RESET"\n", &l[x]);
+	i = x;
+	while (l[i] && l[i] != ' ')
+		i++;
+	if (ft_contains(&l[x], ',') != 2 || l[x] == ',' || l[i - 1] == ','
+		|| i - x > 11 || i - x < 5 || !ft_isdigit_cub(&l[x], i - x))
+		return ;
+	*color = ft_fill_col(&l[x - 1], i, -1, -1);
+	return ;
+}
+
 void	ft_save_elems(t_map *map, char *l)
 {
 	ft_save_this_tex(l, ft_calc_data(l, 'N', 'O'), map->tex_no);
 	ft_save_this_tex(l, ft_calc_data(l, 'S', 'O'), map->tex_so);
 	ft_save_this_tex(l, ft_calc_data(l, 'W', 'E'), map->tex_we);
 	ft_save_this_tex(l, ft_calc_data(l, 'E', 'A'), map->tex_ea);
+	ft_save_this_col(l, ft_calc_data(l, 'F', ' '), &map->flo);
+	ft_save_this_col(l, ft_calc_data(l, 'C', ' '), &map->cel);
 	return ;
 }
