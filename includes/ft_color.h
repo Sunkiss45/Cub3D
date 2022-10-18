@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:07:29 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/05 13:43:45 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:17:07 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@
 # define SCYAN "\e[4;36m"
 
 # define IPURPLE "\e[3;38;5;128m"
+# define BORANGE "\e[1;38;2;255;165;0m"
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:46:35 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/06 20:37:32 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:17:54 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_check_elems(t_map *map)
 		i = 0;
 		while (l[i] && l[i] == ' ')
 			i++;
-		if (l[i] == '\n' || ft_elems_ok(map))
+		if (l[i] == '\0')
 		{
 			free(l);
 			l = gnl(map->fd);

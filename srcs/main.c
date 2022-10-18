@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 14:56:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/06 20:37:45 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:39:34 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,25 @@ int	ft_error_int(char *e, int x)
 	return (x);
 }
 
+int	ft_warning_int(char *w, char *l, int x)
+{
+	write(2, BORANGE"\nWARNING :\n ! ", ft_strlen(BORANGE) + 12);
+	write(2, w, ft_strlen(w));
+	if (l)
+	{
+		write(2, "\n\t -> \"", 7);
+		write(2, l, ft_strlen(l));
+		write(2, "\"", 1);
+	}
+	write(2, RESET"\n\n", ft_strlen(RESET) + 2);
+	return (x);
+}
+
 int	main(int ac, char **av)
 {
 	t_map	map;
 
-	if (BUFFER_SIZE <= 0)
+	if (BUFFER_SIZE < 1024)
 		return (ft_error_int("BUFFER_SIZE must be above 0", 1));
 	ac--;
 	if (ac != 1)

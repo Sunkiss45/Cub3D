@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 14:57:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/06 21:00:33 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:16:56 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_map
  */
 
 int		ft_error_int(char *e, int x);
+int		ft_warning_int(char *w, char *l, int x);
 
 /*
  * === parsing === *
