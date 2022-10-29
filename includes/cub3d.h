@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 14:57:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/18 17:16:56 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:46:36 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_map
 	int		flo;
 	int		cel;
 	int		fd;
+	bool	om;
 }	t_map;
 
 /*
@@ -39,11 +40,11 @@ int		ft_warning_int(char *w, char *l, int x);
  * === parsing === *
  */
 
-int		ft_check_elems(t_map *map);
 int		ft_check_name(t_map *map);
 int		ft_fill_col(char *l, int end, int r, int i);
 bool	ft_isdigit_cub(char *s, int n);
 int		ft_parsing(t_map *map, char *str);
+int		ft_read_data(t_map *map);
 void	ft_save_elems(t_map *map, char *l);
 
 #endif

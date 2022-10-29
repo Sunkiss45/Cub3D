@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 15:41:14 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/06 20:25:30 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:26:33 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_gnl
 }	t_gnl;
 
 char	*gnl(int fd);
+char	**ft_gnl_prem(int fd);
 
 /*
  * === ft_bzero === *
@@ -51,6 +52,9 @@ int		ft_strlen(char *s);
 void	ft_strcopy_n(char *src, char dst[BUFFER_SIZE], int n);
 void	ft_strcopy(char *src, char dst[BUFFER_SIZE]);
 int		ft_contains(char *s, char c);
+char	*ft_strchr(char c, char *set);
+char	*ft_strjoin_c(char *s1, char *s2, char c);
+char	**ft_split_lib(char *s, char c);
 
 /*
  * === ft_ conv === *

@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:48:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/18 18:34:58 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:03:57 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ void	ft_save_elems(t_map *map, char *l)
 	int	r;
 
 	r = 0;
-	if ()
-	{
 	r += ft_save_this_tex(l, ft_calc_data(l, 'N', 'O'), map->tex_no);
 	r += ft_save_this_tex(l, ft_calc_data(l, 'S', 'O'), map->tex_so);
 	r += ft_save_this_tex(l, ft_calc_data(l, 'W', 'E'), map->tex_we);
@@ -83,6 +81,5 @@ void	ft_save_elems(t_map *map, char *l)
 	r += ft_save_this_col(l, ft_calc_data(l, 'C', ' '), &map->cel);
 	if (!r)
 		ft_warning_int("This line was ignored on .cub :", l, 1);
-	}
 	return ;
 }

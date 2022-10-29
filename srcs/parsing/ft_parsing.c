@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:49:08 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/06 18:57:05 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:47:31 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_init_map(t_map *map, char *str)
 	map->flo = -1;
 	map->cel = -1;
 	map->fd = 0;
+	map->om = false;
 }
 
 int	ft_parsing(t_map *map, char *str)
@@ -31,7 +32,7 @@ int	ft_parsing(t_map *map, char *str)
 		return (ft_error_int("argument is invalid (too long or NULL)", 1));
 	if (ft_check_name(map))
 		return (1);
-	if (ft_check_elems(map) && !close(map->fd))
+	if (ft_read_data(map) && !close(map->fd))
 		return (1);
 	close(map->fd);
 	return (0);
