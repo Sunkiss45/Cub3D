@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:46:35 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/29 18:50:37 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/31 03:59:07 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ static void	*ft_free_split(char **strs)
 
 bool	ft_elems_ok(t_map *map)
 {
-	if (!map->tex_no[0])
+	if (!map->tex_no)
 		return (false);
-	if (!map->tex_so[0])
+	if (!map->tex_so)
 		return (false);
-	if (!map->tex_we[0])
+	if (!map->tex_we)
 		return (false);
-	if (!map->tex_ea[0])
+	if (!map->tex_ea)
 		return (false);
 	if (map->flo == -1)
 		return (false);
@@ -57,7 +57,8 @@ void	ft_get_map(t_map *map, char *l)
 		if (!ft_strchr(l[i], "01NSEW "))
 			return ;
 	map->om = true;
-	printf(PINK"Detected on map"RESET"\n"); // go to ft_save_map
+	printf(PINK"Detected on map"RESET"\n");
+
 	return ;
 }
 
@@ -76,9 +77,6 @@ int	ft_read_data(t_map *map)
 	data = ft_gnl_prem(map->fd);
 	if (!data)
 		return (ft_error_int("Error while read the file", 1));
-	int	x = -1;
-	while (data[++x])
-		printf(BRED"[%s]"RESET"\n", data[x]);
 	y = -1;
 	while (data[++y])
 	{
@@ -96,31 +94,5 @@ int	ft_read_data(t_map *map)
 	ft_free_split(data);
 	if (!ft_elems_ok(map))
 		return (ft_error_int("Error while parsing elements of map", 1));
-	return (0);
-
-
-
-	// l = gnl(map->fd);
-	// while (l)
-	// {
-	// 	printf(CYAN"[%s]"RESET"\n", l);
-	// 	i = 0;
-	// 	while (l[i] && l[i] == ' ')
-	// 		i++;
-	// 	if (l[i] == '\0')
-	// 	{
-	// 		free(l);
-	// 		l = gnl(map->fd);
-	// 		continue ;
-	// 	}
-	// 	if (ft_elems_ok(map))
-	// 		ft_get_map(map, l);
-	// 	if (!map->om)
-	// 		ft_save_elems(map, &l[i]);
-	// 	free(l);
-	// 	l = gnl(map->fd);
-	// }
-	// if (!ft_elems_ok(map))
-	// 	return (ft_error_int("Error while parsing elements of map", 1));
 	return (0);
 }

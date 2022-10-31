@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 15:41:14 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/29 17:26:33 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/31 00:41:20 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	ft_bzero(char *str, int x);
  */
 
 int		ft_strlen(char *s);
-void	ft_strcopy_n(char *src, char dst[BUFFER_SIZE], int n);
-void	ft_strcopy(char *src, char dst[BUFFER_SIZE]);
+char	*ft_strdup_n(char *str, int n);
+char	*ft_strdup(char *str);
 int		ft_contains(char *s, char c);
 char	*ft_strchr(char c, char *set);
 char	*ft_strjoin_c(char *s1, char *s2, char c);

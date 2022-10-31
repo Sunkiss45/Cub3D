@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 14:57:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/29 17:46:36 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/31 00:12:39 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 
 typedef struct s_map
 {
-	char	name[BUFFER_SIZE];
-	char	tex_no[BUFFER_SIZE];
-	char	tex_so[BUFFER_SIZE];
-	char	tex_we[BUFFER_SIZE];
-	char	tex_ea[BUFFER_SIZE];
+	char	*name;
+	char	*tex_no;
+	char	*tex_so;
+	char	*tex_we;
+	char	*tex_ea;
+	int		sizeline;
+	int		nbline;
 	int		flo;
 	int		cel;
 	int		fd;

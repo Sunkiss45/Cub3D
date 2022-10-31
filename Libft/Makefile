@@ -6,7 +6,7 @@
 #    By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 15:38:30 by ebarguil          #+#    #+#              #
-#    Updated: 2022/10/29 17:28:19 by ebarguil         ###   ########.fr        #
+#    Updated: 2022/10/31 00:41:37 by ebarguil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,8 @@ SRC		=	srcs/ft_atoi.c \
 			srcs/ft_gnl.c \
 			srcs/ft_split_lib.c \
 			srcs/ft_strchr.c \
-			srcs/ft_strcopy_n.c \
-			srcs/ft_strcopy.c \
+			srcs/ft_strdup_n.c \
+			srcs/ft_strdup.c \
 			srcs/ft_strjoin_c.c \
 			srcs/ft_strlen.c \
 

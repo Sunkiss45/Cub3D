@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:48:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/28 14:03:57 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/10/31 02:01:24 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_calc_data(char *l, char one, char two)
 	return (ret);
 }
 
-int	ft_save_this_tex(char *l, int x, char tex[BUFFER_SIZE])
+int	ft_save_this_tex(char *l, int x, char **tex)
 {
 	// int	fd;
 	int	i;
@@ -41,7 +41,9 @@ int	ft_save_this_tex(char *l, int x, char tex[BUFFER_SIZE])
 	i = x;
 	while (l[i] && l[i] != ' ')
 		i++;
-	ft_strcopy_n(&l[x], tex, i - x);
+	*tex = ft_strdup_n(&l[x], i - x);
+	if (!*tex)
+		return (2);
 	// fd = open(tex, O_RDONLY);
 	// if (fd < 0)
 	// {
@@ -73,13 +75,15 @@ void	ft_save_elems(t_map *map, char *l)
 	int	r;
 
 	r = 0;
-	r += ft_save_this_tex(l, ft_calc_data(l, 'N', 'O'), map->tex_no);
-	r += ft_save_this_tex(l, ft_calc_data(l, 'S', 'O'), map->tex_so);
-	r += ft_save_this_tex(l, ft_calc_data(l, 'W', 'E'), map->tex_we);
-	r += ft_save_this_tex(l, ft_calc_data(l, 'E', 'A'), map->tex_ea);
+	r += ft_save_this_tex(l, ft_calc_data(l, 'N', 'O'), &map->tex_no);
+	r += ft_save_this_tex(l, ft_calc_data(l, 'S', 'O'), &map->tex_so);
+	r += ft_save_this_tex(l, ft_calc_data(l, 'W', 'E'), &map->tex_we);
+	r += ft_save_this_tex(l, ft_calc_data(l, 'E', 'A'), &map->tex_ea);
 	r += ft_save_this_col(l, ft_calc_data(l, 'F', ' '), &map->flo);
 	r += ft_save_this_col(l, ft_calc_data(l, 'C', ' '), &map->cel);
 	if (!r)
 		ft_warning_int("This line was ignored on .cub :", l, 1);
+	else if (r == 2)
+		ft_warning_int("Exeption malloc (ft_save_this_col) :", l, 1);
 	return ;
 }
