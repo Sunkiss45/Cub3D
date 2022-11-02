@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:46:35 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/31 03:59:07 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/02 19:37:24 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	*ft_free_split(char **strs)
 	return (NULL);
 }
 
-bool	ft_elems_ok(t_map *map)
+bool	ft_all_ok(t_map *map)
 {
 	if (!map->tex_no)
 		return (false);
@@ -40,26 +40,9 @@ bool	ft_elems_ok(t_map *map)
 		return (false);
 	if (map->cel == -1)
 		return (false);
+	if (map->map_ok == false)
+		return (false);
 	return (true);
-}
-
-void	ft_get_map(t_map *map, char *l)
-{
-	int	i;
-
-	if (map->om)
-	{
-		printf(PINK"Detected already on map"RESET"\n"); // go to ft_save_map
-		return ;
-	}
-	i = -1;
-	while (l[++i])
-		if (!ft_strchr(l[i], "01NSEW "))
-			return ;
-	map->om = true;
-	printf(PINK"Detected on map"RESET"\n");
-
-	return ;
 }
 
 /*
@@ -68,13 +51,22 @@ void	ft_get_map(t_map *map, char *l)
 		printf(BRED"[%s]"RESET"\n", data[x]);
 */
 
-int	ft_read_data(t_map *map)
+bool	ft_on_map(char *l)
 {
-	char	**data;
+	int	i;
+
+	i = -1;
+	while (l[++i])
+		if (!ft_strchr(l[i], "01NSEW "))
+			return (false);
+	return (true);
+}
+
+int	ft_read_data(t_map *map, char **data)
+{
 	int		y;
 	int		i;
 
-	data = ft_gnl_prem(map->fd);
 	if (!data)
 		return (ft_error_int("Error while read the file", 1));
 	y = -1;
@@ -86,13 +78,14 @@ int	ft_read_data(t_map *map)
 			i++;
 		if (data[y][i] == '\0')
 			continue ;
-		if (ft_elems_ok(map))
-			ft_get_map(map, data[y]);
+		if (ft_on_map(data[y]) && !map->om)
+			map->om = &data[y];
 		if (!map->om)
 			ft_save_elems(map, &data[y][i]);
 	}
+	ft_save_map(map);
 	ft_free_split(data);
-	if (!ft_elems_ok(map))
-		return (ft_error_int("Error while parsing elements of map", 1));
+	if (!ft_all_ok(map))
+		return (ft_error_int("Elements/Map are invalid", 1));
 	return (0);
 }

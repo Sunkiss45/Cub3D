@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:49:08 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/31 01:55:13 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:20:55 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ void	ft_init_map(t_map *map, char *str)
 	map->tex_so = NULL;
 	map->tex_we = NULL;
 	map->tex_ea = NULL;
+	map->om = NULL;
+	map->map_ok = false;
 	map->sizeline = 0;
 	map->nbline = 0;
 	map->flo = -1;
 	map->cel = -1;
 	map->fd = 0;
-	map->om = false;
 }
 
 int	ft_parsing(t_map *map, char *str)
@@ -34,7 +35,7 @@ int	ft_parsing(t_map *map, char *str)
 		return (ft_error_int("Exeption malloc (ft_init_map)", 1));
 	if (ft_check_name(map))
 		return (1);
-	if (ft_read_data(map) && !close(map->fd))
+	if (ft_read_data(map, ft_gnl_prem(map->fd)) && !close(map->fd))
 		return (1);
 	close(map->fd);
 	return (0);

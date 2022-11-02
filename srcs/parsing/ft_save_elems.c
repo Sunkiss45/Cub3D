@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:48:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/31 02:01:24 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/02 20:11:43 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_calc_data(char *l, char one, char two)
 
 int	ft_save_this_tex(char *l, int x, char **tex)
 {
-	// int	fd;
+	int	fd;
 	int	i;
 
 	if (!x)
@@ -44,13 +44,14 @@ int	ft_save_this_tex(char *l, int x, char **tex)
 	*tex = ft_strdup_n(&l[x], i - x);
 	if (!*tex)
 		return (2);
-	// fd = open(tex, O_RDONLY);
-	// if (fd < 0)
-	// {
-	// 	ft_bzero(tex, BUFFER_SIZE);
-	// 	return (0);
-	// }
-	// close(fd);
+	fd = open(*tex, O_RDONLY);
+	if (fd < 0)
+	{
+		free (*tex);
+		*tex = NULL;
+		return (3);
+	}
+	close(fd);
 	return (1);
 }
 
@@ -85,5 +86,7 @@ void	ft_save_elems(t_map *map, char *l)
 		ft_warning_int("This line was ignored on .cub :", l, 1);
 	else if (r == 2)
 		ft_warning_int("Exeption malloc (ft_save_this_col) :", l, 1);
+	else if (r == 3)
+		ft_warning_int("This texture dosn't exist :", l, 1);
 	return ;
 }
