@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 14:57:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/11/02 20:03:53 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/03 04:01:17 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_map
 	char	*tex_we;
 	char	*tex_ea;
 	char	**om;
+	int		*map;
 	bool	map_ok;
 	int		sizeline;
 	int		nbline;
@@ -49,7 +50,7 @@ bool	ft_isdigit_cub(char *s, int n);
 int		ft_parsing(t_map *map, char *str);
 int		ft_read_data(t_map *map, char **data);
 void	ft_save_elems(t_map *map, char *l);
-void	ft_save_map(t_map *map);
+int		ft_save_map(t_map *map);
 bool	ft_verify_close_map(t_map *map);
 
 #endif

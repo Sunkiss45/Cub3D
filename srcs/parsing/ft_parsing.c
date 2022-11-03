@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:49:08 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/11/02 17:20:55 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/03 04:11:23 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_init_map(t_map *map, char *str)
 	map->tex_so = NULL;
 	map->tex_we = NULL;
 	map->tex_ea = NULL;
+	map->map = NULL;
 	map->om = NULL;
 	map->map_ok = false;
 	map->sizeline = 0;

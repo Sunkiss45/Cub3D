@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 14:56:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/10/31 00:48:38 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/03 04:11:08 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	ft_free_pars(t_map *map)
 		free (map->tex_we);
 	if (map->tex_ea)
 		free (map->tex_ea);
+	if (map->map)
+		free (map->map);
 	return ;
 }
 

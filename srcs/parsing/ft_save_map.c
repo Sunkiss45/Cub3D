@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:34:21 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/11/02 20:03:29 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/03 04:12:49 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,29 @@ int	ft_retouch(t_map *map)
 	return (0);
 }
 
-void	ft_save_map(t_map *map)
+int	ft_save_map(t_map *map)
 {
+	int	x;
+	int	y;
+	int	i;
+
 	if (!ft_check_char(map->om))
-		return ;
+		return (1);
 	if (ft_retouch(map))
-		return ;
+		return (1);
 	if (!ft_verify_close_map(map))
-		return ;
+		return (1);
+	map->map = malloc(sizeof(int) * (map->sizeline * map->nbline));
+	if (!map->map)
+		return (ft_error_int("Exception malloc (ft_save_map)", 1));
+	y = -1;
+	i = -1;
+	while (map->om[++y])
+	{
+		x = -1;
+		while (map->om[y][++x])
+			map->map[++i] = map->om[y][x];
+	}
 	map->map_ok = true;
-	return ;
+	return (0);
 }
