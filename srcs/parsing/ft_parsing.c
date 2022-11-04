@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:49:08 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/11/03 04:11:23 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/04 15:17:13 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	ft_parsing(t_map *map, char *str)
 		return (ft_error_int("Exeption malloc (ft_init_map)", 1));
 	if (ft_check_name(map))
 		return (1);
-	if (ft_read_data(map, ft_gnl_prem(map->fd)) && !close(map->fd))
+	if (ft_read_data(map, ft_read_file(map->fd, open(map->name, O_RDONLY)))
+		&& !close(map->fd))
 		return (1);
 	close(map->fd);
 	return (0);

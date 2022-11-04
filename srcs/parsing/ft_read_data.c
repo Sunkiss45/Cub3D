@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:46:35 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/11/02 19:37:24 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/04 15:58:49 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ int	ft_read_data(t_map *map, char **data)
 		if (!map->om)
 			ft_save_elems(map, &data[y][i]);
 	}
-	ft_save_map(map);
+	if (map->om)
+		ft_save_map(map);
 	ft_free_split(data);
 	if (!ft_all_ok(map))
 		return (ft_error_int("Elements/Map are invalid", 1));

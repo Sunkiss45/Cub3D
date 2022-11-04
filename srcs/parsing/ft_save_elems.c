@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:48:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/11/04 11:33:28 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/04 12:41:44 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,29 @@ static int	ft_free_tex(char **tex, int x)
 
 int	ft_save_this_tex(char *l, int x, char **tex)
 {
-	int	fd;
-	int	i;
+	char	*tmp;
+	// int		fd;
+	int		i;
 
 	if (!x)
 		return (0);
 	i = x;
 	while (l[i] && l[i] != ' ')
 		i++;
-	*tex = ft_strdup_n(&l[x], i - x);
-	if (!*tex)
+	tmp = ft_strdup_n(&l[x], i - x);
+	if (!tmp)
 		return (2);
-	i = ft_strlen(*tex);
-	if (i < 4 || tex[0][--i] != 'p' || tex[0][--i] != 'm'
-		|| tex[0][--i] != 'x' || tex[0][--i] != '.')
-		return (ft_free_tex(tex, 3));
-	fd = open(*tex, O_RDONLY);
-	if (fd < 0)
-		return (ft_free_tex(tex, 4));
-	close(fd);
+	i = ft_strlen(tmp);
+	if (i < 4 || tmp[--i] != 'p' || tmp[--i] != 'm'
+		|| tmp[--i] != 'x' || tmp[--i] != '.')
+		return (ft_free_tex(&tmp, 3));
+	// fd = open(tmp, O_RDONLY);
+	// if (fd < 0)
+	// 	return (ft_free_tex(&tmp, 4));
+	// close(fd);
+	if (*tex)
+		free (*tex);
+	*tex = tmp;
 	return (1);
 }
 
