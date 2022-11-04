@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:48:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/11/03 04:13:38 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/04 11:33:28 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ int	ft_calc_data(char *l, char one, char two)
 	return (ret);
 }
 
+static int	ft_free_tex(char **tex, int x)
+{
+	free (*tex);
+	*tex = NULL;
+	return (x);
+}
+
 int	ft_save_this_tex(char *l, int x, char **tex)
 {
 	int	fd;
@@ -44,13 +51,13 @@ int	ft_save_this_tex(char *l, int x, char **tex)
 	*tex = ft_strdup_n(&l[x], i - x);
 	if (!*tex)
 		return (2);
+	i = ft_strlen(*tex);
+	if (i < 4 || tex[0][--i] != 'p' || tex[0][--i] != 'm'
+		|| tex[0][--i] != 'x' || tex[0][--i] != '.')
+		return (ft_free_tex(tex, 3));
 	fd = open(*tex, O_RDONLY);
 	if (fd < 0)
-	{
-		free (*tex);
-		*tex = NULL;
-		return (3);
-	}
+		return (ft_free_tex(tex, 4));
 	close(fd);
 	return (1);
 }
@@ -85,8 +92,10 @@ void	ft_save_elems(t_map *map, char *l)
 	if (!r)
 		ft_warning_int("This line was ignored on .cub :", l, 1);
 	else if (r == 2)
-		ft_warning_int("Exeption malloc (ft_save_this_col) :", l, 1);
+		ft_warning_int("Exeption malloc (ft_save_this_tex) :", l, 1);
 	else if (r == 3)
-		ft_warning_int("This texture dosn't exist :", l, 1);
+		ft_warning_int("This texture is not a \".xmp\"", l, 1);
+	else if (r == 4)
+		ft_warning_int("This texture doesn't exist :", l, 1);
 	return ;
 }

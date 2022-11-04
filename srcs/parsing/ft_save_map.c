@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:34:21 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/11/03 04:12:49 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/04 11:32:54 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*ft_resize_c(char *src, int gsize, char c)
 	if (!ret)
 		return (NULL);
 	i = -1;
-	while (src && src[++i])
+	while (src && src[++i] && i < gsize)
 		ret[i] = src[i];
 	while (i < gsize)
 		ret[i++] = c;
@@ -53,30 +53,59 @@ char	*ft_resize_c(char *src, int gsize, char c)
 	return (ret);
 }
 
-int	ft_retouch(t_map *map)
+int	ft_retouch_while(t_map *map, int y)
 {
 	char	*tmp;
+
+	if (ft_strlen_nos(map->om[y]) < map->sizeline)
+	{
+		tmp = ft_resize_c(map->om[y], map->sizeline, ' ');
+		if (!tmp)
+			return (ft_error_int("Malloc exception (ft_retouch)", 1));
+		free (map->om[y]);
+		map->om[y] = tmp;
+	}
+	else if (ft_strlen(map->om[y]) > map->sizeline)
+	{
+		tmp = ft_strdup_n(map->om[y], map->sizeline);
+		if (!tmp)
+			return (ft_error_int("Malloc exception (ft_retouch)", 1));
+		free (map->om[y]);
+		map->om[y] = tmp;
+	}
+	return (0);
+}
+
+int	ft_retouch(t_map *map)
+{
 	int		y;
 
 	y = -1;
 	while (map->om[++y])
-		if (ft_strlen(map->om[y]) > map->sizeline)
-			map->sizeline = ft_strlen(map->om[y]);
+		if (ft_strlen_nos(map->om[y]) > map->sizeline)
+			map->sizeline = ft_strlen_nos(map->om[y]);
 	map->nbline = y + 1;
 	y = -1;
 	while (map->om[++y])
-	{
-		if (ft_strlen(map->om[y]) < map->sizeline)
-		{
-			tmp = ft_resize_c(map->om[y], map->sizeline, ' ');
-			if (!tmp)
-				return (ft_error_int("Malloc exception (ft_retouch)", 1));
-			free (map->om[y]);
-			map->om[y] = tmp;
-		}
-	}
+		if (ft_retouch_while(map, y))
+			return (1);
 	return (0);
 }
+
+/*
+
+	y = -1;
+	i = -1;
+	while (map->om[++y])
+	{
+		printf(BBLUE"[");
+		x = -1;
+		while (map->om[y][++x])
+			printf("%c", map->map[++i]);
+		printf("]"RESET"\n");
+	}
+
+*/
 
 int	ft_save_map(t_map *map)
 {

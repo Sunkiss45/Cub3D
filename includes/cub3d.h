@@ -6,7 +6,7 @@
 /*   By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 14:57:06 by ebarguil          #+#    #+#             */
-/*   Updated: 2022/11/03 04:01:17 by ebarguil         ###   ########.fr       */
+/*   Updated: 2022/11/04 10:38:40 by ebarguil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ typedef struct s_map
 }	t_map;
 
 /*
- * === ft_error === *
+ * === utils === *
  */
 
 int		ft_error_int(char *e, int x);
 int		ft_warning_int(char *w, char *l, int x);
+int		ft_strlen_nos(char *s);
+void	ft_free_pars(t_map *map);
 
 /*
  * === parsing === *

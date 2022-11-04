@@ -6,7 +6,7 @@
 #    By: ebarguil <ebarguil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 15:01:01 by ebarguil          #+#    #+#              #
-#    Updated: 2022/11/02 20:04:10 by ebarguil         ###   ########.fr        #
+#    Updated: 2022/11/04 10:30:47 by ebarguil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC		=	srcs/main.c \
 			srcs/parsing/ft_save_elems.c \
 			srcs/parsing/ft_save_map.c \
 			srcs/parsing/ft_verify_close_map.c \
+			srcs/parsing/utils.c \
 
 OBJ		=	$(SRC:srcs/%.c=objs/%.o)
 DEP		=	$(SRC:srcs/%.c=objs/%.d)
